@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# profile
-cat >> /etc/profile << 'EOF'
+# /etc/bashrc
+cat >> /etc/bashrc << 'EOF'
 
 alias ls='ls --color=auto'
 alias l='ls -l'
@@ -10,11 +10,6 @@ alias ll='ls -la'
 alias gits='git status'
 alias gitc='git pull --rebase && git status'
 alias gitb='git branch -vv'
-
-EOF
-
-# bashrc
-cat >> /etc/bashrc << 'EOF'
 
 export TERM=xterm-256color
 export PATH=$PATH:/usr/local/go/bin
@@ -28,6 +23,8 @@ _git_prompt() {
 }
 
 PS1="[\u@\h \W]\[\033[36m\]\$(_git_prompt)\[\033[0m\]\\$ "
+
+umask 022
 
 EOF
 
