@@ -35,7 +35,7 @@ if [ -f /etc/selinux/config ]; then
 fi
 
 # limits
-grep -E '\s+nofile\s+[0-9]+' /etc/security/limits.conf
+grep -E '\s+nofile\s+[0-9]+' /etc/security/limits.conf > /dev/null
 if [ $? -ne 0 ]; then
 cat >> /etc/security/limits.conf << 'EOF'
 
@@ -51,8 +51,13 @@ if [ -f /etc/sudoers ]; then
 fi
 
 # apt
-sed -i 's#http://archive.ubuntu.com/ubuntu/#https://mirrors.aliyun.com/ubuntu/#' /etc/apt/sources.list
-sed -i 's#http://security.ubuntu.com/ubuntu/#https://mirrors.aliyun.com/ubuntu/#' /etc/apt/sources.list
+grep 'ubuntu-ports' /etc/apt/sources.list > /dev/null
+if [ $? -ne 0 ]; then
+    sed -i 's#http://archive.ubuntu.com/ubuntu/#http://mirrors.aliyun.com/ubuntu/#' /etc/apt/sources.list
+    sed -i 's#http://security.ubuntu.com/ubuntu/#http://mirrors.aliyun.com/ubuntu/#' /etc/apt/sources.list
+else
+    sed -i 's#http://ports.ubuntu.com/ubuntu-ports/#http://mirrors.aliyun.com/ubuntu-ports/#' /etc/apt/sources.list
+fi
 apt update
 
 # vim
