@@ -28,6 +28,12 @@ umask 022
 
 EOF
 
+# ~/.bashrc
+for p in /root /home/game; do
+    sed -i 's/^alias l[la=]/#&/' $p/.bashrc
+    sed -i 's/^\s*PS1/true #&/'  $p/.bashrc
+done
+
 # disable selinux
 if [ -f /etc/selinux/config ]; then
     sed -i '/^\s*SELINUX=/ c SELINUX=disabled' /etc/selinux/config
@@ -78,17 +84,14 @@ hi DiffText   cterm=bold ctermbg=124
 
 EOF
 
+VIMRUNTIME=$(find /usr/share/vim -maxdepth 1 | grep -E 'vim[0-9]+')
+sed -i 's/^\s*set\s*mouse=a/  set mouse=/' $VIMRUNTIME/defaults.vim
+
 # curl, wget, openssl
 apt install -y wget curl
 
 # remove command-not-found
 apt autoremove -y command-not-found
-
-# ~/.bashrc
-for p in /root /home/game; do
-    sed -i 's/^alias l[la=]/#&/' $p/.bashrc
-    sed -i 's/^\s*PS1/true #&/'  $p/.bashrc
-done
 
 # wsl.conf
 cat > /etc/wsl.conf << 'EOF'
