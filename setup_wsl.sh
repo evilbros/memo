@@ -87,8 +87,8 @@ EOF
 VIMRUNTIME=$(find /usr/share/vim -maxdepth 1 | grep -E 'vim[0-9]+')
 sed -i 's/^\s*set\s*mouse=a/  set mouse=/' $VIMRUNTIME/defaults.vim
 
-# curl, wget, openssl
-apt install -y wget curl
+# curl, wget, git
+apt install -y curl wget git
 
 # remove command-not-found
 apt autoremove -y command-not-found
