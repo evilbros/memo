@@ -13,3 +13,17 @@ yum install -y nodejs
 curl -sL https://deb.nodesource.com/setup_lts.x | bash -
 apt install -y nodejs
 ```
+
+# git config
+
+```
+[user]
+    name = evil
+    email = evil@x.com
+[push]
+    default = simple
+[color]
+    ui = auto
+[diff]
+    tool = vimdiff
+```
