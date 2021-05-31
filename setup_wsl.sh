@@ -93,6 +93,17 @@ apt install -y curl wget git
 # remove command-not-found
 apt autoremove -y command-not-found
 
+# timezone
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+apt install -y tzdata
+
+# locale
+apt install -y locales
+sed -i 's/^#\s*\(en_US.UTF-8\s*UTF-8\)/\1/' /etc/locale.gen
+locale-gen
+update-locale LANG=en_US.UTF-8
+sed -i '/^date_fmt\s*"/ s/%r/%T/' /usr/share/i18n/locales/en_US
+
 # wsl.conf
 cat > /etc/wsl.conf << 'EOF'
 
