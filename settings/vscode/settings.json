@@ -1,0 +1,69 @@
+{
+    "window.restoreWindows": "none",
+    "workbench.startupEditor": "newUntitledFile",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+
+    "explorer.autoReveal": false,
+    "explorer.confirmDelete": false,
+
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.links": false,
+    "editor.fontSize": 18,
+    "editor.parameterHints.cycle": true,
+    "editor.parameterHints.enabled": false,
+
+    "files.hotExit": "off",
+    "files.eol": "\n",
+
+    "files.watcherExclude": {
+        "**/bin/**/*": true,
+    },
+
+    "search.exclude": {
+        "**/bin": true,
+        "**/pkg": true,
+        "**/vendor": true,
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/*.pb.go": true,
+    },
+    "search.collapseResults": "alwaysExpand",
+
+    "git.enabled": false,
+
+    "go.buildOnSave": "off",
+    "go.lintOnSave": "off",
+    "go.vetOnSave": "off",
+    "go.installDependenciesWhenBuilding": false,
+    "go.formatTool": "gofmt",
+    "go.useLanguageServer": true,
+
+    "gopls": {
+        "usePlaceholders": true,
+        "deepCompletion": false,
+        "linkTarget": "",
+        "analyses": {
+            "composites": false,
+            "simplifyrange": false,
+        }
+    },
+
+    "[proto3]": {
+        "editor.formatOnSave": true,
+    },
+
+    "protoc": {
+        "options": [
+            "--proto_path=${workspaceRoot}/src/proto",
+        ]
+    },
+
+    "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true}",
+
+    "extensions.ignoreRecommendations": true,
+    "extensions.autoUpdate": false,
+
+    "update.mode": "none",
+}

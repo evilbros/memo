@@ -1,0 +1,10 @@
+{
+    "largePasteWarning": false,
+    "multiLinePasteWarning": false,
+
+    "actions":
+    [
+        {"command": "scrollUpPage",   "keys": "shift+pageup"},
+        {"command": "scrollDownPage", "keys": "shift+pagedown"},
+    ]
+}
