@@ -1,0 +1,5 @@
+
+SHELL=/bin/bash
+MAILTO=""
+
+0 */2 * * * /home/git/autopush.sh
