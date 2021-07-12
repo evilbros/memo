@@ -1,2 +1,4 @@
 **/node_modules
 **/config.my.json
+deploy/ddns/last
+deploy/ddns/log_update.txt
