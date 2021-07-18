@@ -2,4 +2,4 @@
 SHELL=/bin/bash
 MAILTO=""
 
-0 * * * * /data/ddns/ddns.sh
+*/15 * * * * /data/ddns/ddns.sh
