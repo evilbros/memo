@@ -10,7 +10,8 @@ RUN apt install -y virtualenv python3-dev libffi-dev && \
 USER jupyter:jupyter
 WORKDIR /home/jupyter
 
-RUN virtualenv -p /usr/bin/python3 .py3 && \
+RUN /usr/local/go/bin/go env -w GOPATH=/home/jupyter/.go && \
+    virtualenv -p /usr/bin/python3 .py3 && \
     . .py3/bin/activate && \
     pip config set global.index-url https://mirrors.aliyun.com/pypi/simple && \
     pip install jupyterlab && \
@@ -18,7 +19,7 @@ RUN virtualenv -p /usr/bin/python3 .py3 && \
 COPY gophernotes/* .local/share/jupyter/kernels/gophernotes/
 
 # start
-ENV PASSWORD='argon2:$argon2id$v=19$m=10240,t=10,p=8$WtEfvrhG7/7vyBazd41mxg$neIml0KChxTeogeSxYwR6g'
+ENV PASSWORD='argon2:$argon2id$v=19$m=10240,t=10,p=8$nZKa+i4jnicCVmK3i3zTSQ$qLr6SZK0FQ50Ca39FqnGLg'
 ENV BASE_URL=/jupyter/
 
 EXPOSE 8888
