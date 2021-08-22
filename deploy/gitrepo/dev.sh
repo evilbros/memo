@@ -21,6 +21,7 @@ case "$1" in
     add-remote)
         [ ! $2 ] && _help
         cd $2
+        git remote add gitee  git@gitee.com:evilbros/$2.git
         git remote add github git@github.com:evilbros/$2.git
         chown git:git config
         ;;
@@ -28,6 +29,7 @@ case "$1" in
     push-remote)
         [ ! $2 ] && _help
         cd $2
+        git push --all --follow-tags gitee
         git push --all --follow-tags github
         ;;
 
