@@ -1,7 +1,8 @@
 {
     "window.restoreWindows": "none",
     "workbench.startupEditor": "newUntitledFile",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "workbench.editor.untitled.hint": "hidden",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
 
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
