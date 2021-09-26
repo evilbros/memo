@@ -14,6 +14,7 @@ alias gitb='git branch -vv'
 export TERM=xterm-256color
 export PATH=$PATH:/usr/local/go/bin
 export GOPROXY=https://mirrors.aliyun.com/goproxy/
+export LANG=en_US.UTF-8
 
 _git_prompt() {
     local branch=$(git branch 2>/dev/null | grep \* | cut -d" " -f2)
@@ -57,12 +58,11 @@ if [ -f /etc/sudoers ]; then
 fi
 
 # apt
-grep 'ubuntu-ports' /etc/apt/sources.list > /dev/null
-if [ $? -ne 0 ]; then
-    sed -i 's#http://archive.ubuntu.com/ubuntu/#http://mirrors.aliyun.com/ubuntu/#' /etc/apt/sources.list
-    sed -i 's#http://security.ubuntu.com/ubuntu/#http://mirrors.aliyun.com/ubuntu/#' /etc/apt/sources.list
+grep debian /etc/apt/sources.list > /dev/null
+if [ $? -eq 0 ]; then
+    sed -i 's#http://\w*.debian.org/#http://mirrors.aliyun.com/#' /etc/apt/sources.list
 else
-    sed -i 's#http://ports.ubuntu.com/ubuntu-ports/#http://mirrors.aliyun.com/ubuntu-ports/#' /etc/apt/sources.list
+    sed -i 's#http://\w*.ubuntu.com/#http://mirrors.aliyun.com/#' /etc/apt/sources.list
 fi
 apt update
 
