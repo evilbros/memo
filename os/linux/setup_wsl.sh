@@ -16,14 +16,21 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPROXY=https://mirrors.aliyun.com/goproxy/
 export LANG=en_US.UTF-8
 
+# PS1
+[ -r /etc/debian_chroot ] && chroot_dir=$(</etc/debian_chroot)
+
 _git_prompt() {
     local branch=$(git branch 2>/dev/null | grep \* | cut -d" " -f2)
-    if [ $branch ]; then
-        printf "[$branch]"
-    fi
+    [ $branch ] && printf "[$branch]"
 }
 
-PS1="[\u@\h \W]\[\033[36m\]\$(_git_prompt)\[\033[0m\]\\$ "
+PS1="${chroot_dir:+($chroot_dir)}"
+if [ $(id -u) -eq 0 ]; then
+    PS1="$PS1[\u@\h \W]"
+else
+    PS1="$PS1\[\033[1;32m\]\u@\h\[\033[0m\] \[\033[1;34m\]\W\[\033[0m\]"
+fi
+PS1="$PS1\[\033[36m\]\$(_git_prompt)\[\033[0m\]\\$ "
 
 umask 022
 
