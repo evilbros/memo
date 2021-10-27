@@ -9,32 +9,32 @@ server {
 
     index index.html;
 
+
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    proxy_http_version  1.1;
+    proxy_set_header    Upgrade $http_upgrade;
+    proxy_set_header    Connection "upgrade";
+    proxy_read_timeout  600s;
+
+
+    location = /favicon.ico {
+        return 301 https://$host:1234/images/favicon.png;
+    }
+
     location = / {
         return 301 https://$host:1234/game/;
     }
 
     location / {
-        proxy_pass http://192.168.0.x:8000;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://192.168.0.200:8000;
     }
 
     location ~ ^/game($|/) {
         root /data/web;
     }
 
-    location /jupyter/ {
-        proxy_pass http://192.168.0.x:8888;
-        proxy_set_header Origin http://$proxy_host;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-        proxy_http_version  1.1;
-        proxy_set_header    Upgrade $http_upgrade;
-        proxy_set_header    Connection "upgrade";
-        proxy_read_timeout  600s;
-    }
-
     location /lab/ {
-        proxy_pass http://192.168.0.x:9999;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://192.168.0.201:7777;
     }
 }
