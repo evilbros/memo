@@ -1,0 +1,12 @@
+[Unit]
+Description = ttyd
+After = network.target
+
+[Service]
+Type = simple
+User = game
+ExecStart = /usr/local/bin/ttyd -p 0 bash
+Restart = always
+
+[Install]
+WantedBy = multi-user.target

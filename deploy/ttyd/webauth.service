@@ -1,0 +1,12 @@
+[Unit]
+Description = web auth
+After = network.target
+
+[Service]
+Type = simple
+User = root
+ExecStart = /usr/local/bin/webauth.js
+Restart = always
+
+[Install]
+WantedBy = multi-user.target
