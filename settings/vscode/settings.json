@@ -19,7 +19,7 @@
     "files.eol": "\n",
 
     "files.watcherExclude": {
-        "**/bin/**/*": true,
+        "**/bin/**": true,
     },
 
     "search.exclude": {
@@ -65,6 +65,9 @@
 
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate": false,
+
+    "remote.WSL.fileWatcher.polling": true,
+    "remote.WSL.fileWatcher.pollingInterval": 5000,
 
     "update.mode": "none",
 }

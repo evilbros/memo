@@ -7,6 +7,8 @@ alias ls='ls --color=auto'
 alias l='ls -l'
 alias ll='ls -la'
 
+alias grep='grep --color=auto'
+
 alias gits='git status'
 alias gitc='git pull --rebase && git status'
 alias gitb='git branch -vv'
@@ -31,6 +33,9 @@ else
     PS1="$PS1\[\033[1;32m\]\u@\h\[\033[0m\] \[\033[1;34m\]\W\[\033[0m\]"
 fi
 PS1="$PS1\[\033[36m\]\$(_git_prompt)\[\033[0m\]\\$ "
+
+# HOME
+[ ! $HOME ] && export HOME=$(realpath ~)
 
 umask 022
 

@@ -6,5 +6,6 @@
     [
         {"command": "scrollUpPage",   "keys": "shift+pageup"},
         {"command": "scrollDownPage", "keys": "shift+pagedown"},
+        {"command": "unbound",        "keys": "win+`"},
     ]
 }
