@@ -1,6 +1,7 @@
 # Win10
 
 * kmspico: anti-virus exclude, windows SECOH-QAD.exe.dll
+* disable automatic update
 * power plan: no sleep
 * desktop bgcolor, desktop icon(ThisPc)
 * add english languge
@@ -23,5 +24,4 @@
 * quick-access -> options: no folders, no files
 * folder settings: group by none
 * remove cdrom drive
-* disable automatic update
 * install wsl-ubuntu

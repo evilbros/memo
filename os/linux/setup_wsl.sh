@@ -15,7 +15,7 @@ alias gitb='git branch -vv'
 
 export TERM=xterm-256color
 export PATH=$PATH:/usr/local/go/bin
-export GOPROXY=https://mirrors.aliyun.com/goproxy/
+export GOPROXY=https://goproxy.cn
 export LANG=en_US.UTF-8
 
 # PS1

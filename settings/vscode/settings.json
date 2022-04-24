@@ -11,7 +11,7 @@
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.links": false,
-    "editor.fontSize": 18,
+    "editor.fontSize": 16,
     "editor.parameterHints.cycle": true,
     "editor.parameterHints.enabled": false,
 
@@ -32,8 +32,6 @@
     },
     "search.collapseResults": "alwaysExpand",
 
-    "git.enabled": false,
-
     "go.buildOnSave": "off",
     "go.lintOnSave": "off",
     "go.vetOnSave": "off",
@@ -51,6 +49,10 @@
         }
     },
 
+    "[typescript]": {
+        "editor.formatOnSave": true,
+    },
+
     "[proto3]": {
         "editor.formatOnSave": true,
     },
@@ -61,7 +63,7 @@
         ]
     },
 
-    "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true}",
+    "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: AcrossEmptyLinesAndComments, AlignConsecutiveDeclarations: AcrossEmptyLinesAndComments, AllowShortFunctionsOnASingleLine: false}",
 
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate": false,
@@ -70,4 +72,5 @@
     "remote.WSL.fileWatcher.pollingInterval": 5000,
 
     "update.mode": "none",
+    "git.enabled": false,
 }
