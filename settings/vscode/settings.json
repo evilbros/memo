@@ -14,6 +14,7 @@
     "editor.fontSize": 16,
     "editor.parameterHints.cycle": true,
     "editor.parameterHints.enabled": false,
+    "editor.bracketPairColorization.enabled": false,
 
     "files.hotExit": "off",
     "files.eol": "\n",
@@ -63,7 +64,7 @@
         ]
     },
 
-    "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: AcrossEmptyLinesAndComments, AlignConsecutiveDeclarations: AcrossEmptyLinesAndComments, AllowShortFunctionsOnASingleLine: false}",
+    "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: AcrossComments, AlignConsecutiveDeclarations: AcrossComments, AllowShortFunctionsOnASingleLine: false}",
 
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate": false,
@@ -72,5 +73,6 @@
     "remote.WSL.fileWatcher.pollingInterval": 5000,
 
     "update.mode": "none",
+
     "git.enabled": false,
 }

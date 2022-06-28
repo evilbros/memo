@@ -108,7 +108,7 @@ sed -i '/^date_fmt\s*"/ s/%r/%T/' /usr/share/i18n/locales/en_US
 apt install -y build-essential
 
 # golang
-GO_VERSION=1.16.5
+GO_VERSION=1.18.3
 GO_GZ=go${GO_VERSION}.linux-armv6l.tar.gz
 
 curl -Lo $GO_GZ https://golang.google.cn/dl/$GO_GZ
