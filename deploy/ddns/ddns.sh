@@ -8,8 +8,20 @@ TS=$(date +"%F %T")
 echo -e "[$TS]\n---------------------" > $LOG
 
 # query current IP
-#ip=$(curl -sL http://ip.gs)
-ip=$(curl -sL http://ip-api.com/line/?fields=query)
+ipquery=(
+    "curl -sL http://ip.gs"
+    "curl -sL https://ipapi.co/ip"
+    "curl -sL 'https://ip.cn/api/index?ip=&type=0' | sed -En '1 s/.*\"ip\"\s*:\s*\"([^\"]*)\".*/\1/p'"
+    "curl -sL http://ip-api.com/line/?fields=query"
+)
+for cmd in "${ipquery[@]}"; do
+    ip=$(bash -c "$cmd")
+    if [ $ip ]; then
+        echo "$cmd [OK]" >> $LOG
+        break
+    fi
+done
+[ ! $ip ] && echo "query ip failed" >> $LOG && exit 1
 echo "query current ip: $ip" >> $LOG
 
 # check last IP
