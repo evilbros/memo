@@ -1,9 +1,11 @@
 @echo off
 
-set LXDISTRO=Ubuntu-18.04
-set PORT_XXX=12345
+set PORTS=22 8080
 
 netsh interface portproxy reset
-netsh AdvFirewall Firewall delete rule name="%LXDISTRO% Port Forward %PORT_XXX%" > NUL
+
+for %%x in (%PORTS%) do (
+    netsh advfirewall firewall delete rule name="wsl port forward %%x" > nul
+)
 
 echo port closed

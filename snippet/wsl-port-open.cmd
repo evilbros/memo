@@ -1,10 +1,14 @@
 @echo off
 
-set LXDISTRO=Ubuntu-18.04
-set PORT_XXX=12345
 set IP=172.22.22.22
+set PORTS=22 8080
 
-netsh interface portproxy add v4tov4 listenport=%PORT_XXX% listenaddress=0.0.0.0 connectport=%PORT_XXX% connectaddress=%IP%
-netsh AdvFirewall Firewall add rule name="%LXDISTRO% Port Forward %PORT_XXX%" dir=in action=allow protocol=TCP localport=%PORT_XXX% > NUL
+netsh interface portproxy reset
+
+for %%x in (%PORTS%) do (
+    netsh advfirewall firewall delete rule name="wsl port forward %%x" > nul
+    netsh advfirewall firewall add rule name="wsl port forward %%x" dir=in action=allow protocol=tcp localport=%%x > nul
+    netsh interface portproxy add v4tov4 listenport=%%x listenaddress=0.0.0.0 connectport=%%x connectaddress=%IP% > nul
+)
 
 echo port open
