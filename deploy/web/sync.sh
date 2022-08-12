@@ -5,6 +5,7 @@
 projects=(
     "pushbox        play"
     "tinydraw"
+    "neatapp"
 )
 #########################################
 
