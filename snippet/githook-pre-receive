@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# An example hook script to make use of push options.
+# The example simply echoes all push options that start with 'echoback='
+# and rejects all pushes when the "reject" push option is used.
+#
+# To enable this hook, rename this file to "pre-receive".
+
+while read old new ref; do
+        # new branch ?
+        [[ $old =~ "00000000000000000000" ]] && continue
+
+        # delete branch ?
+        if [[ $new =~ "00000000000000000000" ]]; then
+                [[ $ref =~ "/master"$ ]] && echo "denial of master deletion" && exit 1
+                continue
+        fi
+
+        # non fast forwards ?
+        [ "$(git merge-base $old $new)" != "$old" ] && echo "denial of non-fast-fowrads" && exit 1
+done
+
+# ok
+exit 0
+
