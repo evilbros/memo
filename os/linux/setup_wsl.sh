@@ -72,9 +72,9 @@ fi
 # apt
 grep debian /etc/apt/sources.list > /dev/null
 if [ $? -eq 0 ]; then
-    sed -i 's#http://\w*.debian.org/#http://mirrors.aliyun.com/#' /etc/apt/sources.list
+    sed -i 's#http://\w*.debian.org/#http://mirrors.ustc.edu.cn/#' /etc/apt/sources.list
 else
-    sed -i 's#http://\w*.ubuntu.com/#http://mirrors.aliyun.com/#' /etc/apt/sources.list
+    sed -i 's#http://\w*.ubuntu.com/#http://mirrors.ustc.edu.cn/#' /etc/apt/sources.list
 fi
 apt update
 
