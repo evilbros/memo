@@ -1,17 +1,13 @@
-# Win10
+# Win11
 
-* kmspico: anti-virus exclude, windows SECOH-QAD.exe.dll
 * disable automatic update
 * power plan: no sleep
 * desktop bgcolor, desktop icon(ThisPc)
 * add english languge
-* feature: add smb 1.0 server, linux, virtual platform
+* feature: add linux, virtual platform
 * remove ThisPc folders, fix dup drives in explorer
-* vpn registry: assumeUDP...
 * 7-zip, chrome, qq pinyin
-* chrome: plugins fix flash
 * remove useless programs
-* disable notify fullscreen
 * setting->multitasking: disable snap next to it
 * setting->start: off recently added apps, most used
 * setting->taskbar: combine if full
@@ -25,3 +21,16 @@
 * folder settings: group by none
 * remove cdrom drive
 * install wsl-ubuntu
+
+# memo
+
+* win11 install without TPM:
+    * shift + F10: show cmd window
+
+    * first:        REG ADD HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1
+    * if NOT then:  REG ADD HKLM\SYSTEM\Setup\LabConfig /v BypassSecureBootCheck /t REG_DWORD /d 1
+
+* win11 config startup without login with microsoft account:
+    * shift + F10: show cmd window
+    * windows/system32/oobe/oobeBypassNRO.cmd
+

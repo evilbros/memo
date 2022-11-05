@@ -7,18 +7,19 @@
 
 # install nodejs
 
-* centos
+```
+wget http://mirrors.ustc.edu.cn/node/latest-v18.x/node-v18.12.1-linux-x64.tar.gz
+tar -C /usr/local -xf node-v18.12.1-linux-x64.tar.gz
+mv /usr/local/node-v18.12.1-linux-x64 /usr/local/node
+```
+
+# install docker
 
 ```
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash -
-yum install -y nodejs
-```
-
-* ubuntu
-
-```
-curl -sL https://deb.nodesource.com/setup_lts.x | bash -
-apt install -y nodejs
+curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/docker.gpg
+echo "deb https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker-ce.list
+apt update
+apt install docker-ce docker-compose-plugin
 ```
 
 # git config

@@ -14,7 +14,7 @@ alias gitc='git pull --rebase && git status'
 alias gitb='git branch -vv'
 
 export TERM=xterm-256color
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:/usr/local/node/bin
 export GOPROXY=https://goproxy.cn
 export LANG=en_US.UTF-8
 
@@ -42,7 +42,7 @@ umask 022
 EOF
 
 # ~/.bashrc
-for p in /root /home/game; do
+for p in /root /home/evil; do
     sed -i 's/^alias l[la=]/#&/' $p/.bashrc
     sed -i 's/^\s*PS1/true #&/'  $p/.bashrc
 done
@@ -115,12 +115,13 @@ sed -i 's/^#\s*\(en_US.UTF-8\s*UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 update-locale LANG=en_US.UTF-8
 sed -i '/^date_fmt\s*"/ s/%r/%T/' /usr/share/i18n/locales/en_US
+locale-gen
 
 # wsl.conf
 cat > /etc/wsl.conf << 'EOF'
 
 [automount]
-enabled = true
+enabled = false
 root = /
 options = rw,noatime,uid=1000,gid=1000,metadata,umask=22,fmask=111
 mountFsTab = true
