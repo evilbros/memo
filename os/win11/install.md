@@ -21,6 +21,10 @@
 * folder settings: group by none
 * remove cdrom drive
 * install wsl-ubuntu
+    * always close wt window 
+    * .gitconfig for user 1000
+    * update-alternatives --config editor
+
 
 # memo
 
