@@ -3,7 +3,7 @@
 c:
 
 @echo starting wsl
-wsl -- which
+wsl -u root -- mkdir -p /data
 
 @echo adding IPs
 wsl -u root -- ip addr add 172.22.22.22/24 broadcast 172.22.22.255 dev eth0 label eth0:1

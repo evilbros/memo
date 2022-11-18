@@ -19,6 +19,7 @@
 * system props: small dump, no remote assistance
 * quick-access -> options: no folders, no files
 * folder settings: group by none
+* setting->system->notifications: disable suggestions on how to setup my device
 * remove cdrom drive
 * install wsl-ubuntu
     * always close wt window 
