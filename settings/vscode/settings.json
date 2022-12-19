@@ -54,6 +54,10 @@
         "editor.formatOnSave": true,
     },
 
+    "[javascript]": {
+        "editor.formatOnSave": true,
+    },
+
     "[proto3]": {
         "editor.formatOnSave": true,
     },
@@ -68,9 +72,6 @@
 
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate": false,
-
-    "remote.WSL.fileWatcher.polling": true,
-    "remote.WSL.fileWatcher.pollingInterval": 5000,
 
     "update.mode": "none",
 
