@@ -1,6 +1,7 @@
 # Win11
 
 * disable automatic update
+* activate
 * power plan: no sleep
 * desktop bgcolor, desktop icon(ThisPc)
 * add english languge

@@ -1,0 +1,2 @@
+export LESS="-Xr --quit-if-one-screen"
+

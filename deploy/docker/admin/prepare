@@ -1,0 +1,33 @@
+# check compose file
+[ ! -f docker-compose.yml ] && cp template.yml docker-compose.yml
+
+# check list file
+[ ! -f LIST ] && sed -En -e '/^[[:space:]]*image:/!h' -e '/^[[:space:]]*image:/ {x;s/ //g;s/://;p;}' template.yml > LIST
+
+# make created list
+created=()
+for x in $(docker-compose ps --services -a); do
+    created+=($x)
+done
+
+enabled=()
+for x in $(sed -En '/^[[:space:]]*[[:alnum:]]+[[:space:]]*$/ p' LIST); do
+    enabled+=($x)
+done
+
+is_created() {
+    for x in "${created[@]}"; do
+        [ $x == "$1" ] && return 0
+    done
+
+    return 1
+}
+
+is_enabled() {
+    for x in "${enabled[@]}"; do
+        [ $x == "$1" ] && return 0
+    done
+
+    return 1
+}
+

@@ -13,6 +13,6 @@ netsh interface ip add address "vEthernet (WSL)" 172.22.22.21/24
 wsl --mount --vhd --bare D:\work\work.vhdx
 
 @echo mounting vhd AND starting docker
-wsl -u root -- bash -c "D=\$(lsblk | grep 300G | cut -d' ' -f1); if ! df -h | grep /dev/\$D; then mount /dev/\$D /data; if which docker; then service docker start; fi fi"
+wsl -u root -- bash -c "D=\$(lsblk | grep 300G | cut -d' ' -f1); if ! df -h | grep /dev/\$D; then mount /dev/\$D /data; if which nginx; then service nginx start; fi fi"
 
 pause
