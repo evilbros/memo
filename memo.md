@@ -8,9 +8,9 @@
 # install nodejs
 
 ```
-wget http://mirrors.ustc.edu.cn/node/latest-v18.x/node-v18.12.1-linux-x64.tar.gz
-tar -C /usr/local -xf node-v18.12.1-linux-x64.tar.gz
-mv /usr/local/node-v18.12.1-linux-x64 /usr/local/node
+wget http://mirrors.ustc.edu.cn/node/v18.15.0/node-v18.15.0-linux-x64.tar.gz
+tar -C /usr/local -xf node-v18.15.0-linux-x64.tar.gz
+mv /usr/local/node-v18.15.0-linux-x64 /usr/local/node
 ```
 
 # install docker
