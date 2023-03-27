@@ -50,11 +50,27 @@
         }
     },
 
+    "protoc": {
+        "options": [
+            "--proto_path=${workspaceRoot}/src/proto",
+        ]
+    },
+
+    "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: AcrossComments, AlignConsecutiveDeclarations: AcrossComments, AllowShortFunctionsOnASingleLine: false}",
+
+    "js/ts.implicitProjectConfig.strictNullChecks": false,
+
+    "json.format.keepLines": true,
+
     "[typescript]": {
         "editor.formatOnSave": true,
     },
 
     "[javascript]": {
+        "editor.formatOnSave": true,
+    },
+
+    "[json]": {
         "editor.formatOnSave": true,
     },
 
@@ -65,14 +81,6 @@
     "[proto3]": {
         "editor.formatOnSave": true,
     },
-
-    "protoc": {
-        "options": [
-            "--proto_path=${workspaceRoot}/src/proto",
-        ]
-    },
-
-    "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: AcrossComments, AlignConsecutiveDeclarations: AcrossComments, AllowShortFunctionsOnASingleLine: false}",
 
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate": false,
