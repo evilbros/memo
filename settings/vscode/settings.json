@@ -60,6 +60,8 @@
 
     "js/ts.implicitProjectConfig.strictNullChecks": false,
 
+    "python.formatting.provider": "black",
+
     "json.format.keepLines": true,
 
     "[typescript]": {
@@ -70,11 +72,11 @@
         "editor.formatOnSave": true,
     },
 
-    "[json]": {
+    "[python]": {
         "editor.formatOnSave": true,
     },
 
-    "[python]": {
+    "[json]": {
         "editor.formatOnSave": true,
     },
 
