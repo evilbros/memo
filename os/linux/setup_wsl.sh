@@ -54,8 +54,7 @@ if [ -f /etc/selinux/config ]; then
 fi
 
 # limits
-grep -E '\s+nofile\s+[0-9]+' /etc/security/limits.conf > /dev/null
-if [ $? -ne 0 ]; then
+if ! grep -E '\s+nofile\s+[0-9]+' /etc/security/limits.conf > /dev/null; then
 cat >> /etc/security/limits.conf << 'EOF'
 
 *   soft    nofile  99999
@@ -64,19 +63,19 @@ cat >> /etc/security/limits.conf << 'EOF'
 EOF
 fi
 
-# sudoers
-if [ -f /etc/sudoers ]; then
-    sed -i 's/^\s*%sudo\s*ALL=(ALL:ALL)/& NOPASSWD:/' /etc/sudoers
-fi
-
 # apt
-grep debian /etc/apt/sources.list > /dev/null
-if [ $? -eq 0 ]; then
+if grep debian /etc/apt/sources.list > /dev/null; then
     sed -i 's#http://\w*.debian.org/#http://mirrors.ustc.edu.cn/#' /etc/apt/sources.list
 else
     sed -i 's#http://\w*.ubuntu.com/#http://mirrors.ustc.edu.cn/#' /etc/apt/sources.list
 fi
 apt update
+
+# sudoers
+apt install -y sudo
+if [ -f /etc/sudoers ]; then
+    sed -i 's/^\s*%sudo\s*ALL=(ALL:ALL)/& NOPASSWD:/' /etc/sudoers
+fi
 
 # vim
 apt install -y vim
@@ -117,21 +116,30 @@ update-locale LANG=en_US.UTF-8
 sed -i '/^date_fmt\s*"/ s/%r/%T/' /usr/share/i18n/locales/en_US
 locale-gen
 
-# wsl.conf
+# wsl: wsl.conf
 cat > /etc/wsl.conf << 'EOF'
 
 [automount]
 enabled = false
-root = /
-options = rw,noatime,uid=1000,gid=1000,metadata,umask=22,fmask=111
-mountFsTab = true
+
+[interop]
+appendWindowsPath = false
+
+[boot]
+systemd = true
 
 EOF
 
-# fstab
-grep -E 'c:\s+/c\s+drvfs' /etc/fstab
-if [ $? -ne 0 ]; then
+# wsl: fstab
+if ! grep -E 'c:\s+/mnt/c\s+drvfs' /etc/fstab; then
 cat >> /etc/fstab << 'EOF'
-c:  /c  drvfs   rw,noatime,uid=1000,gid=1000,metadata,umask=22,fmask=11 0   0
+c:  /mnt/c  drvfs   rw,noatime,uid=1000,gid=1000,metadata,umask=22,fmask=11 0   0
 EOF
 fi
+
+# wsl: add windows path
+cat >> /etc/bash.bashrc << 'EOF'
+
+export PATH=$PATH:/mnt/c/Windows
+
+EOF
