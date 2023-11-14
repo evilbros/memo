@@ -1,7 +1,6 @@
 @echo off
 
-%1 mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)
-%1 exit
+%1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)&exit
 
 c:
 
@@ -13,7 +12,7 @@ netsh interface ip add address "vEthernet (WSL)" 172.22.22.21/24
 wsl -- sudo mkdir -p /data
 wsl --mount --vhd --bare D:\work\work.vhdx
 
-@echo mounting vhd AND starting docker
+@echo mounting vhd
 wsl -- sudo bash -c "D=\$(lsblk | grep 300G | cut -d' ' -f1); if ! df -h | grep /dev/\$D; then mount /dev/\$D /data; fi"
 
 pause

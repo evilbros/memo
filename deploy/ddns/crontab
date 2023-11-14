@@ -1,5 +1,0 @@
-
-SHELL=/bin/bash
-MAILTO=""
-
-*/15 * * * * /data/ddns/ddns.sh

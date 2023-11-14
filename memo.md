@@ -11,6 +11,7 @@
 wget http://mirrors.ustc.edu.cn/node/v18.15.0/node-v18.15.0-linux-x64.tar.gz
 tar -C /usr/local -xf node-v18.15.0-linux-x64.tar.gz
 mv /usr/local/node-v18.15.0-linux-x64 /usr/local/node
+rm -rf node-v18.15.0-linux-x64.tar.gz
 ```
 
 # install docker
@@ -39,6 +40,7 @@ apt install docker-ce docker-compose-plugin
 # generate self-signed certificate
 
 ```bash
-NAME=test openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ${NAME}.key -out ${NAME}.cert
-NAME=test openssl pkcs12 -inkey ${NAME}.key -in ${NAME}.cert -export -out ${NAME}.pfx
+FN=test
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ${FN}.key -out ${FN}.cert
+openssl pkcs12 -inkey ${FN}.key -in ${FN}.cert -export -out ${FN}.pfx
 ```
