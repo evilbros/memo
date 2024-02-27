@@ -2,8 +2,8 @@ ssl_certificate      /etc/mycert/www.xxx.top_bundle.crt;
 ssl_certificate_key  /etc/mycert/www.xxx.top.key;
 
 server {
-    listen 1234 ssl default_server;
-    listen [::]:1234 ssl default_server;
+    listen 888 ssl default_server;
+    listen [::]:888 ssl default_server;
 
     server_name www.xxx.top xxx.top;
 
@@ -17,22 +17,23 @@ server {
     proxy_read_timeout  600s;
 
     location = /favicon.ico {
-        return 301 https://$host:1234/images/favicon.png;
+        return 301 https://$host:888/images/favicon.png;
     }
 
     location = / {
-        return 301 https://$host:1234/game/;
+        return 301 https://$host:888/game/;
     }
 
     location / {
-        proxy_pass http://192.168.0.200:8000;
+        proxy_pass http://localhost:8000;
     }
 
     location ~ ^/game($|/) {
         root /data/web;
     }
 
-    location /lab/ {
-        proxy_pass http://192.168.0.201:7777;
+    location /nas/ {
+        proxy_pass http://localhost:1234;
+        client_max_body_size 50m;
     }
 }
