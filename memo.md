@@ -23,6 +23,20 @@ apt update
 apt install docker-ce docker-compose-plugin
 ```
 
+# podman notes
+
+* enable podman-restart.service
+* start container with --restart=always
+* loginctl enable-linger 1000
+* config file:
+
+```
+[storage]
+driver = "overlay"
+graphroot = "/home/user/.podman-data/graph"
+runroot = "/home/user/.podman-data/run"
+```
+
 # git config
 
 ```

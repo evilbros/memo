@@ -31,7 +31,7 @@ done
 DIR=$(mktemp -d $name.XXXX)
 cd $DIR
 
-git clone git@192.168.0.200:$name
+git clone ssh://git@192.168.0.200:1818/~git/$name
 cd $name
 
 rm -rf package.json package-lock.json

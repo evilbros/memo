@@ -1,10 +1,10 @@
 {
     "dnspod": {
         "api_key": "",
-        "check_itv_min": 60,
 
         "records": [
-            {"id": 0, "sub_domain": ""}
+            { "id": 0, "sub_domain": "@" },
+            { "id": 0, "sub_domain": "www" }
         ]
     }
 }

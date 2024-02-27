@@ -9,6 +9,7 @@ _help() {
     echo "commands:"
     echo "  add-remote  repo-name"
     echo "  push-remote repo-name"
+    echo "  safe-dir"
     echo "  check"
     echo
 
@@ -31,6 +32,15 @@ case "$1" in
         cd $2
         git push --all --follow-tags gitee
         git push --all --follow-tags github
+        ;;
+
+    safe-dir)
+        git config --global --remove-section safe
+        for x in $(find -maxdepth 1 -type d | grep -E '^./[^.]'); do
+            dir=$(realpath $x)
+            echo "safe dir: $dir"
+            git config --global --add safe.directory $dir
+        done
         ;;
 
     check)
