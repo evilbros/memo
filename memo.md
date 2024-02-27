@@ -14,6 +14,12 @@ mv /usr/local/node-v18.15.0-linux-x64 /usr/local/node
 rm -rf node-v18.15.0-linux-x64.tar.gz
 ```
 
+# npm registry mirror
+
+```
+npm cmd --registry=https://registry.npmmirror.com
+```
+
 # install docker
 
 ```
