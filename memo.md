@@ -5,6 +5,11 @@
 * https://www.redblobgames.com/grids/line-drawing.html
 * http://incompleteideas.net/book/ebook/the-book.html
 
+# armbian: prevent from sleeping
+```
+systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
 # install nodejs
 
 ```
