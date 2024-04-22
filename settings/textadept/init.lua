@@ -7,7 +7,9 @@ local function shift_del()
 end
 
 local function find_current_word()
-    textadept.editing.select_word()
+    if buffer.selection_empty then
+        textadept.editing.select_word()
+    end
     ui.find.find_entry_text = buffer.get_sel_text()
     ui.find.find_next()
 end
