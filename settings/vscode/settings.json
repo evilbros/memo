@@ -1,7 +1,10 @@
 {
     "window.restoreWindows": "none",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.editor.untitled.hint": "hidden",
+    "window.commandCenter": false,
+
+    "workbench.startupEditor": "none",
+    "workbench.editor.empty.hint": "hidden",
+
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
 
     "explorer.autoReveal": false,
@@ -16,11 +19,20 @@
     "editor.parameterHints.enabled": false,
     "editor.bracketPairColorization.enabled": false,
 
+    "editor.tokenColorCustomizations": {
+        "[Default Dark Modern]": {
+            "variables": "#ccc",
+        }
+    },
+
     "files.hotExit": "off",
     "files.eol": "\n",
 
     "files.watcherExclude": {
         "**/bin/**": true,
+    },
+    "files.associations": {
+        "*.toml": "ini"
     },
 
     "search.exclude": {
@@ -47,6 +59,7 @@
         "analyses": {
             "composites": false,
             "simplifyrange": false,
+            "unusedparams": false,
         }
     },
 
@@ -86,8 +99,10 @@
 
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate": false,
+    "extensions.autoCheckUpdates": false,
 
     "update.mode": "none",
 
     "git.enabled": false,
 }
+
