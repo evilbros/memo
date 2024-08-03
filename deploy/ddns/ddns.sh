@@ -3,10 +3,11 @@
 cd $(dirname $0)
 
 IP_QUERY=(
-    "curl -sL http://ip.gs"
-    "curl -sL https://ipapi.co/ip"
+    "curl -sL ipinfo.io | sed '1 c j={' | sed '$ c }; console.log(j.ip)' | node -"
     "curl -sL 'https://ip.cn/api/index?ip=&type=0' | sed -En '1 s/.*\"ip\"\s*:\s*\"([^\"]*)\".*/\1/p'"
     "curl -sL http://ip-api.com/line/?fields=query"
+    "curl -sL http://ip.gs"
+    "curl -sL https://ipapi.co/ip"
 )
 
 LOG=./log_update.txt
@@ -44,7 +45,7 @@ while true; do
         # ok
         echo $ip > last
 
-        break 
+        break
     done
 
     sleep 15m
