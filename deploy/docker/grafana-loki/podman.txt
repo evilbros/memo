@@ -1,0 +1,43 @@
+
+mkdir -p /data/loki-data/config
+mkdir -p /data/loki-data/data
+podman unshare cp loki.yaml /data/loki-data/config
+podman unshare chown 10001:10001 /data/loki-data -R
+
+
+mkdir -p /data/grafana-data
+podman unshare chown 472:472 /data/grafana-data -R
+
+
+mkdir -p /data/nginx-data
+podman unshare cp nginx.conf /data/nginx-data
+podman unshare chown 101:101 /data/nginx-data -R
+
+
+podman pod rm logservice
+podman pod create -p 3000:3000 -p 3030:80 logservice
+
+
+
+
+podman run -d \
+  --name loki \
+  --pod logservice \
+  -v /data/loki-data/data:/loki \
+  -v /data/loki-data/config:/etc/loki \
+  grafana/loki:latest \
+  -config.file=/etc/loki/loki.yaml
+
+podman run -d \
+  --name grafana \
+  --pod logservice \
+  -v /data/grafana-data:/var/lib/grafana \
+  grafana/grafana:latest
+
+
+podman run -d \
+  --name nginx \
+  --pod logservice \
+  -v /data/nginx-data/nginx.conf:/etc/nginx/nginx.conf \
+  nginx:latest
+
