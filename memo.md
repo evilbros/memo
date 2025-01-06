@@ -28,10 +28,13 @@ npm cmd --registry=https://registry.npmmirror.com
 # install docker
 
 ```
-curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/docker.gpg
-echo "deb https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker-ce.list
-apt update
-apt install docker-ce docker-compose-plugin
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://mirrors.ustc.edu.cn/docker-ce/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install docker-ce docker-compose-plugin
 ```
 
 # podman notes
