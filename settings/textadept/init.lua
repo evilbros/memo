@@ -16,7 +16,7 @@ end
 
 ----------------------------------------------------------------------
 
-view:set_theme('base16-monokai', {font = 'Microsoft YaHei', size = 12})
+view:set_theme('base16-monokai', {font = 'Consolas', size = 14})
 
 buffer.use_tabs = false
 buffer.tab_width = 4
@@ -33,5 +33,6 @@ keys['f3'] = ui.find.find_next
 
 ui.find.highlight_all_matches = true
 textadept.editing.auto_pairs = nil -- disable completely
+textadept.editing.highlight_words = textadept.editing.HIGHLIGHT_SELECTED
 textadept.session.save_on_quit = false
 
