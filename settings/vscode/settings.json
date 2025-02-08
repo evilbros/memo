@@ -6,6 +6,7 @@
     "workbench.editor.empty.hint": "hidden",
 
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
 
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
@@ -45,7 +46,6 @@
     },
     "search.collapseResults": "alwaysExpand",
 
-    "go.buildOnSave": "off",
     "go.lintOnSave": "off",
     "go.vetOnSave": "off",
     "go.installDependenciesWhenBuilding": false,
