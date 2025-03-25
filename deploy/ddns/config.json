@@ -1,6 +1,9 @@
 {
     "dnspod": {
-        "api_key": "",
+        "secret_id": "",
+        "secret_key": "",
+
+        "domain": "",
 
         "records": [
             { "id": 0, "sub_domain": "@" },
