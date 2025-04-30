@@ -13,10 +13,10 @@ systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 # install nodejs
 
 ```
-wget http://mirrors.ustc.edu.cn/node/v18.15.0/node-v18.15.0-linux-x64.tar.gz
-tar -C /usr/local -xf node-v18.15.0-linux-x64.tar.gz
-mv /usr/local/node-v18.15.0-linux-x64 /usr/local/node
-rm -rf node-v18.15.0-linux-x64.tar.gz
+wget http://mirrors.ustc.edu.cn/node/v22.15.0/node-v22.15.0-linux-x64.tar.gz
+tar -C /usr/local -xf node-v22.15.0-linux-x64.tar.gz
+mv /usr/local/node-v22.15.0-linux-x64 /usr/local/node
+rm -rf node-v22.15.0-linux-x64.tar.gz
 ```
 
 # npm registry mirror
