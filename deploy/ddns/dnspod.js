@@ -149,7 +149,7 @@ args = args.slice(1);
 
         case 'delete':
             {
-                let recordId = args[0];
+                let recordId = Number(args[0]);
                 if (!recordId) usage();
 
                 await deleteRecord(recordId);
