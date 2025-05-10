@@ -149,10 +149,15 @@ args = args.slice(1);
 
         case 'delete':
             {
-                let recordId = Number(args[0]);
-                if (!recordId) usage();
+                for (let v of args) {
+                    let recordId = Number(v)
+                    if (!recordId) {
+                        console.error('invalid recordId:', v);
+                        continue;
+                    }
 
-                await deleteRecord(recordId);
+                    await deleteRecord(recordId);
+                }
             }
             break;
     }

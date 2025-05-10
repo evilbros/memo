@@ -8,4 +8,4 @@ certbot certonly \
     --preferred-challenges=dns \
     --manual-auth-hook ./add-txt.sh \
     --manual-cleanup-hook ./del-txt.sh \
-    -d '*.xxx.com'
+    -d '*.xxx.com' -d 'xxx.com'
