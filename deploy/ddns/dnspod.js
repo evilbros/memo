@@ -149,6 +149,8 @@ args = args.slice(1);
 
         case 'delete':
             {
+                if (args.length < 1) usage();
+
                 for (let v of args) {
                     let recordId = Number(v)
                     if (!recordId) {
