@@ -19,6 +19,7 @@
     "editor.parameterHints.cycle": true,
     "editor.parameterHints.enabled": false,
     "editor.bracketPairColorization.enabled": false,
+    "editor.accessibilitySupport": "off",
 
     "editor.tokenColorCustomizations": {
         "[Default Dark Modern]": {
@@ -33,7 +34,7 @@
         "**/bin/**": true,
     },
     "files.associations": {
-        "*.toml": "ini"
+        "*.toml": "ini",
     },
 
     "search.exclude": {
@@ -60,8 +61,12 @@
             "composites": false,
             "simplifyrange": false,
             "unusedparams": false,
+            "unusedfunc": false,
+            "infertypeargs": false,
         }
     },
+
+    "python.analysis.autoImportCompletions": true,
 
     "protoc": {
         "options": [
@@ -72,8 +77,6 @@
     "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: AcrossComments, AlignConsecutiveDeclarations: AcrossComments, AllowShortFunctionsOnASingleLine: false}",
 
     "js/ts.implicitProjectConfig.strictNullChecks": false,
-
-    "python.formatting.provider": "black",
 
     "json.format.keepLines": true,
 
@@ -87,14 +90,24 @@
 
     "[python]": {
         "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter",
     },
 
     "[json]": {
         "editor.formatOnSave": true,
     },
 
+    "[html]": {
+        "editor.formatOnSave": true,
+    },
+
     "[proto3]": {
         "editor.formatOnSave": true,
+    },
+
+    "[vue]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "Vue.volar",
     },
 
     "extensions.ignoreRecommendations": true,

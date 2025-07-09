@@ -1,0 +1,123 @@
+
+----------------------------------------------------
+create index auto rollover policy
+----------------------------------------------------
+
+curl -X PUT \
+-H 'content-type: application/json' \
+-d '
+{
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {
+          "rollover": {
+            "max_size": "1GB",
+            "max_docs": 1000000
+          }
+        }
+      }
+    }
+  }
+}
+' localhost:9200/_ilm/policy/chat_policy
+
+
+----------------------------------------------------
+create data stream index template and bind the rollover policy
+----------------------------------------------------
+
+
+curl -X PUT \
+-H 'content-type: application/json' \
+-d '
+{
+  "index_patterns": ["chat*"],
+  "data_stream":{},
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "index.lifecycle.name": "chat_policy"
+    },
+    "mappings": {
+      "properties": {
+        "playerid": { "type": "keyword" },
+        "channel": { "type": "keyword" },
+        "text": { "type": "text" },
+        "@timestamp": { "type": "date" }
+      }
+    }
+  }
+}
+' localhost:9200/_index_template/chat_template
+
+
+----------------------------------------------------
+add records
+----------------------------------------------------
+
+curl -i -X POST \
+-H 'content-type: application/json' \
+-d '
+{
+    "@timestamp": 1751959416,
+    "playerid": "player12345",
+    "channel": 1,
+    "text": "跟我系统学编程"
+} ' localhost:9200/chat/_doc
+
+curl -i -X POST \
+-H 'content-type: application/json' \
+-d '
+{
+    "@timestamp": 1751959416,
+    "playerid": "player12345",
+    "channel": 1,
+    "text": "跟我学系统编程"
+} ' localhost:9200/chat/_doc
+
+curl -i -X POST \
+-H 'content-type: application/json' \
+-d '
+{
+    "@timestamp": 1751959416,
+    "playerid": "player12345",
+    "channel": 1,
+    "text": "系统学编程跟我"
+} ' localhost:9200/chat/_doc
+
+curl -i -X POST \
+-H 'content-type: application/json' \
+-d '
+{
+    "@timestamp": 1751959416,
+    "playerid": "player12345",
+    "channel": 1,
+    "text": "系统跟我学编程"
+} ' localhost:9200/chat/_doc
+
+----------------------------------------------------
+query
+----------------------------------------------------
+
+
+curl -X GET "localhost:9200/chat/_search" -H 'Content-Type: application/json' \
+-d'
+{
+  "query": {
+    "match_all": {}
+  }
+}
+'
+
+curl -X GET "localhost:9200/chat/_search" -H 'Content-Type: application/json' \
+-d'
+{
+  "query": {
+    "match_phrase": {
+      "text": "跟我学"
+    }
+  }
+}
+'
