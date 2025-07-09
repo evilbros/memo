@@ -13,7 +13,7 @@ curl -X PUT \
         "actions": {
           "rollover": {
             "max_size": "1GB",
-            "max_docs": 1000000
+            "max_docs": 10000000
           }
         }
       }
