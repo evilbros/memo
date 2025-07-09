@@ -61,7 +61,7 @@ curl -i -X POST \
 -H 'content-type: application/json' \
 -d '
 {
-    "@timestamp": 1751959416,
+    "@timestamp": 1751959416000,
     "playerid": "player12345",
     "channel": 1,
     "text": "跟我系统学编程"
@@ -71,7 +71,7 @@ curl -i -X POST \
 -H 'content-type: application/json' \
 -d '
 {
-    "@timestamp": 1751959416,
+    "@timestamp": 1751959416000,
     "playerid": "player12345",
     "channel": 1,
     "text": "跟我学系统编程"
@@ -81,7 +81,7 @@ curl -i -X POST \
 -H 'content-type: application/json' \
 -d '
 {
-    "@timestamp": 1751959416,
+    "@timestamp": 1751959416000,
     "playerid": "player12345",
     "channel": 1,
     "text": "系统学编程跟我"
@@ -91,7 +91,7 @@ curl -i -X POST \
 -H 'content-type: application/json' \
 -d '
 {
-    "@timestamp": 1751959416,
+    "@timestamp": 1751959416000,
     "playerid": "player12345",
     "channel": 1,
     "text": "系统跟我学编程"
