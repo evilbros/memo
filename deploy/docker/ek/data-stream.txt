@@ -4,6 +4,7 @@ create index auto rollover policy
 ----------------------------------------------------
 
 curl -X PUT \
+-u elastic:password \
 -H 'content-type: application/json' \
 -d '
 {
@@ -29,6 +30,7 @@ create data stream index template and bind the rollover policy
 
 
 curl -X PUT \
+-u elastic:password \
 -H 'content-type: application/json' \
 -d '
 {
@@ -58,6 +60,7 @@ add records
 ----------------------------------------------------
 
 curl -i -X POST \
+-u elastic:password \
 -H 'content-type: application/json' \
 -d '
 {
@@ -68,6 +71,7 @@ curl -i -X POST \
 } ' localhost:9200/chat/_doc
 
 curl -i -X POST \
+-u elastic:password \
 -H 'content-type: application/json' \
 -d '
 {
@@ -78,6 +82,7 @@ curl -i -X POST \
 } ' localhost:9200/chat/_doc
 
 curl -i -X POST \
+-u elastic:password \
 -H 'content-type: application/json' \
 -d '
 {
@@ -88,6 +93,7 @@ curl -i -X POST \
 } ' localhost:9200/chat/_doc
 
 curl -i -X POST \
+-u elastic:password \
 -H 'content-type: application/json' \
 -d '
 {
@@ -102,7 +108,8 @@ query
 ----------------------------------------------------
 
 
-curl -X GET "localhost:9200/chat/_search" -H 'Content-Type: application/json' \
+curl -X GET localhost:9200/chat/_search -H 'Content-Type: application/json' \
+-u elastic:password \
 -d'
 {
   "query": {
@@ -111,7 +118,8 @@ curl -X GET "localhost:9200/chat/_search" -H 'Content-Type: application/json' \
 }
 '
 
-curl -X GET "localhost:9200/chat/_search" -H 'Content-Type: application/json' \
+curl -X GET localhost:9200/chat/_search -H 'Content-Type: application/json' \
+-u elastic:password \
 -d'
 {
   "query": {

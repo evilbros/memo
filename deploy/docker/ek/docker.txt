@@ -1,4 +1,7 @@
 
+make sure the persistent host folders are created and owned by userid 1000
+
+
 docker run -d \
   --name es \
   -p 9200:9200 \
@@ -7,6 +10,7 @@ docker run -d \
   -e xpack.security.http.ssl.enabled=false \
   -e xpack.security.transport.ssl.enabled=false \
   -e ELASTIC_PASSWORD=elastic_user_password \
+  -v /data/docker-vol/es/data:/usr/share/elasticsearch/data \
   elasticsearch:8.18.2
 
 
@@ -16,16 +20,19 @@ use elastic:password for http basic authorization to visit elasticsearch
 enter container es:
     - elasticsearch-reset-password -u kibana_system
 
+
 docker run -d \
   --name kibana \
   -p 5601:5601 \
   -e ELASTICSEARCH_HOSTS=http://10.11.11.11:9200 \
   -e ELASTICSEARCH_USERNAME=kibana_system \
-  -e ELASTICSEARCH_PASSWORD=auto-gen-password \
+  -e ELASTICSEARCH_PASSWORD=the-reset-password \
   -e XPACK_SECURITY_ENABLED=true \
   -e SERVER_BASEPATH=/kibana \
   -e SERVER_REWRITEBASEPATH=true \
+  -v /data/docker-vol/kibana/data:/usr/share/kibana/data \
   kibana:8.18.2
+
 
 nginx proxy:
     location /kibana/ {
@@ -36,6 +43,7 @@ nginx proxy:
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 
-login kibana with elastic user and password. (elastic is the super user)
-create a new user for other users with builtin 'editor' role.
+
+login kibana with elastic user and password. (elastic is the superuser)
+create other users with builtin 'editor' role.
 
