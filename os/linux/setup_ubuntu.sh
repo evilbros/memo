@@ -121,30 +121,3 @@ update-locale LANG=en_US.UTF-8
 sed -i '/^date_fmt\s*"/ s/%r/%T/' /usr/share/i18n/locales/en_US
 locale-gen
 
-# wsl: wsl.conf
-cat > /etc/wsl.conf << 'EOF'
-
-[automount]
-enabled = false
-
-[interop]
-appendWindowsPath = false
-
-[boot]
-systemd = true
-
-EOF
-
-# wsl: fstab
-if ! grep -E 'c:\s+/mnt/c\s+drvfs' /etc/fstab; then
-cat >> /etc/fstab << 'EOF'
-c:  /mnt/c  drvfs   rw,noatime,uid=1000,gid=1000,metadata,umask=22,fmask=11 0   0
-EOF
-fi
-
-# wsl: add windows path
-cat >> /etc/bash.bashrc << 'EOF'
-
-export PATH=$PATH:/mnt/c/Windows
-
-EOF
