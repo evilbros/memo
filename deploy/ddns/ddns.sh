@@ -3,11 +3,11 @@
 cd $(dirname $0)
 
 IP_QUERY=(
-    "curl -sL http://ipinfo.io/ip"
-    "curl -sL http://ip-api.com/line/?fields=query"
-    "curl -sL 'https://ip.cn/api/index?ip=&type=0' | sed -En '1 s/.*\"ip\"\s*:\s*\"([^\"]*)\".*/\1/p'"
-    "curl -sL http://ip.gs"
-    "curl -sL https://ipapi.co/ip"
+    "curl -m 15 -sL http://ipinfo.io/ip"
+    "curl -m 15 -sL http://ip-api.com/line/?fields=query"
+    "curl -m 15 -sL http://ip.gs"
+    "curl -m 15 -sL https://ipapi.co/ip"
+    "curl -m 15 -sL https://api.ipapi.is/ip"
 )
 
 LOG=./log_update.txt
