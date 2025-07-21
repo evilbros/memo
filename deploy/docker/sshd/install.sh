@@ -58,11 +58,16 @@ EOF
 fi
 
 # apt
-if grep debian /etc/apt/sources.list > /dev/null; then
+[ -f /etc/apt/sources.list.d/debian.sources ] &&
+    sed -i 's#http://\w*.debian.org/#http://mirrors.ustc.edu.cn/#' /etc/apt/sources.list.d/debian.sources
+[ -f /etc/apt/sources.list.d/ubuntu.sources ] &&
+    sed -i 's#http://\w*.ubuntu.com/#http://mirrors.ustc.edu.cn/#' /etc/apt/sources.list.d/ubuntu.sources
+
+if [ -f /etc/apt/sources.list ]; then
     sed -i 's#http://\w*.debian.org/#http://mirrors.ustc.edu.cn/#' /etc/apt/sources.list
-else
     sed -i 's#http://\w*.ubuntu.com/#http://mirrors.ustc.edu.cn/#' /etc/apt/sources.list
 fi
+
 apt update
 
 # sudoers
@@ -70,6 +75,10 @@ apt install -y sudo
 if [ -f /etc/sudoers ]; then
     sed -i 's/^\s*%sudo\s*ALL=(ALL:ALL)/& NOPASSWD:/' /etc/sudoers
 fi
+
+# timezone
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+apt install -y tzdata
 
 # vim
 apt install -y vim
@@ -97,10 +106,6 @@ apt install -y curl wget git
 
 # remove command-not-found
 apt autoremove -y command-not-found
-
-# timezone
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-apt install -y tzdata
 
 # locale
 apt install -y locales
