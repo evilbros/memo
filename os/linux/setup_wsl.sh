@@ -22,8 +22,8 @@ export LANG=en_US.UTF-8
 [ -r /etc/debian_chroot ] && chroot_dir=$(</etc/debian_chroot)
 
 _git_prompt() {
-    local branch=$(git branch 2>/dev/null | grep \* | cut -d" " -f2)
-    [ $branch ] && printf "[$branch]"
+    local branch=$(git branch 2>/dev/null | grep \* | cut -d" " -f2-)
+    [ "$branch" ] && printf "[$branch]"
 }
 
 PS1="${chroot_dir:+($chroot_dir)}"
@@ -35,7 +35,7 @@ fi
 PS1="$PS1\[\033[36m\]\$(_git_prompt)\[\033[0m\]\\$ "
 
 # HOME
-[ ! $HOME ] && export HOME=$(realpath ~)
+[ ! "$HOME" ] && export HOME=$(realpath ~)
 
 umask 022
 
