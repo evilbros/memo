@@ -12,7 +12,7 @@ while read old new ref; do
 
         # delete branch ?
         if [[ $new =~ "00000000000000000000" ]]; then
-                [[ $ref =~ "/master"$ ]] && echo "denial of master deletion" && exit 1
+                [[ $ref =~ "/master"$ || $ref =~ "/main"$ ]] && echo "denial of main deletion" && exit 1
                 continue
         fi
 
