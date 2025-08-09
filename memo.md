@@ -57,12 +57,22 @@ runroot = "/home/user/.podman-data/run"
 [user]
     name = evil
     email = evil@x.com
+
 [push]
     default = simple
+[pull]
+    rebase = false
+
 [color]
     ui = auto
 [diff]
     tool = vimdiff
+
+[core]
+    autocrlf = false
+
+[init]
+    defaultBranch = main
 ```
 
 # generate self-signed certificate
