@@ -116,9 +116,8 @@ function shell_exec(cmd, ondata) {
         child.on('close', code => {
             if (ondata) {
                 ondata(null);
-            } else {
-                rv(out);
             }
+            rv(out);
         });
     });
 }
