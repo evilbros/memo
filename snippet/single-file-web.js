@@ -54,40 +54,22 @@ console.log('server started on port:', PORT);
 
 // ============================================
 
-var BASE_DIR = "";
 var routes = [];
+var defaultRoutes = {f: (req, res) => res.end('default')};
 
 function get(path, f) {
     let method = 'GET';
-    path = BASE_DIR + path;
     routes.push({ method, path, f });
-    sortRoutes();
 }
 
 function post(path, f) {
     let method = 'POST';
-    path = BASE_DIR + path;
     routes.push({ method, path, f });
-    sortRoutes();
-}
-
-function sortRoutes() {
-    routes.sort((a, b) => b.path.length - a.path.length);
 }
 
 function getRouteHandler(method, path) {
-    for (let e of routes) {
-        if (e.method != method) continue;
-
-        if (path.startsWith(e.path)) {
-            return e.f;
-        }
-    }
-    return defaultRoutes;
-}
-
-function defaultRoutes(req, res) {
-    res.end('default');
+    let e = routes.find(v => v.method == method && v.path == path) || defaultRoutes;
+    return e.f;
 }
 
 // ============================================
@@ -127,6 +109,8 @@ function shell_exec(cmd, ondata) {
 get('/execute', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Transfer-Encoding', 'chunked');
+
+    res.write(`<pre>`);
 
     shell_exec(`bash -c 'ls -la; sleep 1; cat ~/.bashrc'`, data => {
         if (data) {
