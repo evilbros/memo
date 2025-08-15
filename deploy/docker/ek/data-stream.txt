@@ -13,14 +13,15 @@ curl -X PUT \
       "hot": {
         "actions": {
           "rollover": {
-            "max_size": "2GB",
+            "max_age": "10d",
+            "max_primary_shard_size": "50gb",
             "max_docs": 10000000
           },
           "set_priority": { "priority": 100 }
         }
       },
       "warm": {
-        "min_age": "0ms",
+        "min_age": "1d",
         "actions": {
           "forcemerge": { "max_num_segments": 1 },
           "shrink": { "number_of_shards": 1 },
