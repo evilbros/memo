@@ -1,0 +1,26 @@
+# app name
+NAME=test
+
+# packed tar file
+TAR_FILE=bin.tar.gz
+
+# volumes
+VOLUMES=(
+    back/config.json
+    back/data
+)
+
+# nginx proxies
+PROXIES=(
+    "/:1234"
+)
+
+# nginx statics
+STATICS=(
+    "/ui:/front"
+)
+
+# commands
+START="cd back; node main.js &>log.txt&"
+STOP="cd back;"
+
