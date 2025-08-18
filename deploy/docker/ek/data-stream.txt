@@ -13,9 +13,9 @@ curl -X PUT \
       "hot": {
         "actions": {
           "rollover": {
-            "max_age": "10d",
+            "max_age": "60d",
             "max_primary_shard_size": "50gb",
-            "max_docs": 10000000
+            "max_docs": 50000000
           },
           "set_priority": { "priority": 100 }
         }
