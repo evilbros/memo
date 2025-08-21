@@ -13,14 +13,16 @@ VOLUMES=(
 # nginx proxies
 PROXIES=(
     "/:1234"
+    "/back:1234"
 )
 
 # nginx statics
 STATICS=(
     "/ui:/front"
+    "/front/go:/front"
 )
 
 # commands
-START="cd back; node main.js &>log.txt&"
-STOP="cd back;"
+START="cd back; ./ctl.sh start"
+STOP="cd back; ./ctl.sh stop"
 

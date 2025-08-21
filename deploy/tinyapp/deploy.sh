@@ -30,6 +30,7 @@ tar -xf $TAR_FILE
 echo "stopping app ..."
 if [ -d $APPS_DIR/$NAME ]; then
     cd $APPS_DIR/$NAME
+    bash -c "$STOP"
 fi
 
 # update app
@@ -81,6 +82,7 @@ sudo service nginx reload
 
 # start app
 echo "starting app ..."
+bash -c "$START"
 
 # cleanup
 echo "clean up"
