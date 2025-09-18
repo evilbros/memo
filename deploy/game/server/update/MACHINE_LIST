@@ -1,0 +1,6 @@
+MACHINE_LIST=(
+    "m1    LanIP    WanIP   domain"
+    "m2    LanIP    WanIP   domain"
+    "m3    LanIP    WanIP   domain"
+    "m4    LanIP    WanIP   domain"
+)

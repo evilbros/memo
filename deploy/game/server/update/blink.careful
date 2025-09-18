@@ -1,0 +1,12 @@
+
+read -p "Are you sure to blink ? [Yes/No]" x
+[ "$x" != "Yes" ] && exit 1
+
+./admin.sh stop-except center
+./admin.sh stop center
+./admin.sh dist
+./admin.sh update-combat
+./admin.sh update
+./admin.sh start center
+./admin.sh start-except center
+
