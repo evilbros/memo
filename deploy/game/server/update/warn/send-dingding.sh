@@ -4,7 +4,7 @@ ADDR='bot-addr'
 
 [ ! "$1" ] && echo "$0 text" && exit 1
 
-curl -sL -H 'content-type: application/json' -d "
+curl -s --max-time 15 -H 'content-type: application/json' -d "
 {
     \"msgtype\": \"text\",
     \"text\": {
