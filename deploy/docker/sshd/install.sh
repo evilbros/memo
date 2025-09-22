@@ -116,6 +116,7 @@ sed -i '/^date_fmt\s*"/ s/%r/%T/' /usr/share/i18n/locales/en_US
 locale-gen
 
 # add user
+userdel -r ubuntu 2>/dev/null
 useradd -ms /bin/bash -G sudo game
 
 # ~/.bashrc
