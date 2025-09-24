@@ -1,8 +1,11 @@
 # app name
 NAME=test
 
-# packed tar file
-TAR_FILE=bin.tar.gz
+# pack command
+PACK_CMD="./dev.sh pack"
+
+# packed bin directory
+BIN_DIR=bin
 
 # volumes
 VOLUMES=(

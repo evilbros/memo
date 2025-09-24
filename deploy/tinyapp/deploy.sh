@@ -20,11 +20,7 @@ cd $proj_dir
 
 # pack
 echo "packing ..."
-./pack.sh
-
-# extract
-bin_dir=${TAR_FILE%.tar.gz}
-tar -xf $TAR_FILE
+bash -c "$PACK_CMD"
 
 # stop app
 echo "stopping app ..."
@@ -38,7 +34,7 @@ echo "updating app ..."
 cd $DEPLOY_DIR/$proj_dir
 
 rm -rf $APPS_DIR/$NAME
-mv $bin_dir $APPS_DIR/$NAME
+mv $BIN_DIR $APPS_DIR/$NAME
 
 # mount volumes
 cd $APPS_DIR/$NAME
