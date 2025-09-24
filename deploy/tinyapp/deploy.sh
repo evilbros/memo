@@ -40,7 +40,7 @@ mv $BIN_DIR $APPS_DIR/$NAME
 cd $APPS_DIR/$NAME
 
 for v in "${VOLUMES[@]}"; do
-    ln -sf $VOLUMES_DIR/$NAME/$v $v
+    ln -sfn $VOLUMES_DIR/$NAME/$v $v
 done
 
 # nginx config
