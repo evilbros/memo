@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # /etc/bash.bashrc
+sed -i '1 i PS1="\\\\$ "' /etc/bash.bashrc
+
 cat >> /etc/bash.bashrc << 'EOF'
 
 alias ls='ls --color=auto'

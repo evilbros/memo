@@ -1,4 +1,4 @@
-FROM debian:11
+FROM debian:12
 
 COPY install.sh entrypoint.sh /
 RUN bash /install.sh && \
