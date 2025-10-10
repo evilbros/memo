@@ -22,7 +22,7 @@ rm -rf node-v22.15.0-linux-x64.tar.gz
 # npm registry mirror
 
 ```
-npm cmd --registry=https://registry.npmmirror.com
+npm config set registry=https://registry.npmmirror.com
 ```
 
 # install docker
