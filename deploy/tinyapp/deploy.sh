@@ -1,17 +1,22 @@
 #!/bin/bash
 
-DEPLOY_DIR=$(realpath .)
-APPS_DIR=$(realpath ~/apps)
-VOLUMES_DIR=$(realpath ~/volumes)
+DEPLOY_DIR=$(pwd)
+APPS_DIR="/data/apps"
+VOLUMES_DIR="/data/volumes"
 WEB_PREFIX="/app"
 
 # params
 url=$1
-[ ! "$url" ] && echo "$0 git-url" && exit 1
+subdir=$2
+
+[ ! $url ] && echo "$0 git-url [subdir]" && exit 1
 
 # clone project
-proj_dir=$(mktemp -d tmp-proj-XXX)
-git clone --depth 1 $url $proj_dir
+tmp_dir=$(mktemp -d tmp-proj-XXX)
+proj_dir=$tmp_dir
+[ $subdir ] && proj_dir+="/$subdir"
+
+git clone --depth 1 $url $tmp_dir
 cd $proj_dir
 
 # source deploy file
@@ -83,5 +88,4 @@ bash -c "$START"
 # cleanup
 echo "clean up"
 cd $DEPLOY_DIR
-rm -rf $proj_dir
-
+rm -rf $tmp_dir
