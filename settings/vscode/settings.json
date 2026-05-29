@@ -4,7 +4,7 @@
 
     "workbench.startupEditor": "none",
     "workbench.editor.empty.hint": "hidden",
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Dark Modern",
 
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "terminal.integrated.enableMultiLinePasteWarning": "never",
