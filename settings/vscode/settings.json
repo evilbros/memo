@@ -4,6 +4,7 @@
 
     "workbench.startupEditor": "none",
     "workbench.editor.empty.hint": "hidden",
+    "workbench.colorTheme": "Visual Studio Dark",
 
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "terminal.integrated.enableMultiLinePasteWarning": "never",
@@ -52,8 +53,10 @@
     "go.installDependenciesWhenBuilding": false,
     "go.formatTool": "gofmt",
     "go.useLanguageServer": true,
+    "go.toolsManagement.checkForUpdates": "off",
 
     "gopls": {
+        "ui.diagnostic.staticcheck": false,
         "usePlaceholders": true,
         "deepCompletion": false,
         "linkTarget": "",
@@ -77,6 +80,7 @@
     "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: AcrossComments, AlignConsecutiveDeclarations: AcrossComments, AllowShortFunctionsOnASingleLine: false}",
 
     "js/ts.implicitProjectConfig.strictNullChecks": false,
+    "js/ts.updateImportsOnFileMove.enabled": "always",
 
     "json.format.keepLines": true,
 
@@ -91,6 +95,10 @@
     "[python]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "ms-python.black-formatter",
+    },
+
+    "[csharp]": {
+        "editor.formatOnSave": true
     },
 
     "[json]": {
@@ -114,8 +122,9 @@
     "extensions.autoUpdate": false,
     "extensions.autoCheckUpdates": false,
 
+    "git.openRepositoryInParentFolders": "always",
+
+    "chat.disableAIFeatures": true,
+
     "update.mode": "none",
-
-    "git.enabled": false,
 }
-
