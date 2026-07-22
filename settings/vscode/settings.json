@@ -81,6 +81,7 @@
 
     "js/ts.implicitProjectConfig.strictNullChecks": false,
     "js/ts.updateImportsOnFileMove.enabled": "always",
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
 
     "json.format.keepLines": true,
 
