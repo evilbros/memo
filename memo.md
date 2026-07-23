@@ -30,10 +30,10 @@ mkdir -p ~/.config/uv
 cat > ~/.config/uv/uv.toml <<EOF
 [[index]]
 url = "https://mirrors.ustc.edu.cn/pypi/simple"
-default = true
 
 [[index]]
 url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
 EOF
 ```
 
