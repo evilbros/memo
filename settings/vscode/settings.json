@@ -31,6 +31,9 @@
     "files.hotExit": "off",
     "files.eol": "\n",
 
+    "files.exclude": {
+        "**/__pycache__": true
+    },
     "files.watcherExclude": {
         "**/bin/**": true,
     },
@@ -39,12 +42,13 @@
     },
 
     "search.exclude": {
-        "**/bin": true,
-        "**/pkg": true,
-        "**/vendor": true,
-        "**/node_modules": true,
-        "**/dist": true,
+        "**/__pycache__": true,
         "**/*.pb.go": true,
+        "**/bin": true,
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/pkg": true,
+        "**/vendor": true
     },
     "search.collapseResults": "alwaysExpand",
 
@@ -129,3 +133,4 @@
 
     "update.mode": "none",
 }
+
