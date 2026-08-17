@@ -11,6 +11,21 @@
       "models": {
         "deepseek-v4-flash": {
           "name": "deepseek-v4-flash",
+          "reasoning": true,
+          "options": {
+            "reasoningEffort": "medium"
+          },
+          "limit": {
+            "context": 256000,
+            "output": 65536
+          }
+        },
+        "glm-5.2": {
+          "name": "glm-5.2",
+          "reasoning": true,
+          "options": {
+            "reasoningEffort": "medium"
+          },
           "limit": {
             "context": 256000,
             "output": 65536
@@ -20,4 +35,3 @@
     }
   }
 }
-
