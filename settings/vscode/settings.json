@@ -75,14 +75,6 @@
 
     "python.analysis.autoImportCompletions": true,
 
-    "protoc": {
-        "options": [
-            "--proto_path=${workspaceRoot}/src/proto",
-        ]
-    },
-
-    "clang-format.style": "{IndentWidth: 4, AlignConsecutiveAssignments: AcrossComments, AlignConsecutiveDeclarations: AcrossComments, AllowShortFunctionsOnASingleLine: false}",
-
     "js/ts.implicitProjectConfig.strictNullChecks": false,
     "js/ts.updateImportsOnFileMove.enabled": "always",
     "js/ts.tsdk.path": "node_modules/typescript/lib",
@@ -124,7 +116,7 @@
     },
 
     "extensions.ignoreRecommendations": true,
-    "extensions.autoUpdate": false,
+    "extensions.autoUpdate": "off",
     "extensions.autoCheckUpdates": false,
 
     "git.openRepositoryInParentFolders": "always",
@@ -133,4 +125,3 @@
 
     "update.mode": "none",
 }
-
