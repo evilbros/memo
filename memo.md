@@ -37,6 +37,23 @@ default = true
 EOF
 ```
 
+# install rust
+
+```
+# 官方脚本 + 镜像
+RUSTUP_UPDATE_ROOT=https://mirrors.aliyun.com/rustup/rustup \
+RUSTUP_DIST_SERVER=https://mirrors.aliyun.com/rustup \
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# crates.io 镜像
+cat > ~/.cargo/config.toml <<EOF
+[source.crates-io]
+replace-with = 'aliyun'
+[source.aliyun]
+registry = "sparse+https://mirrors.aliyun.com/crates.io-index/"
+EOF
+```
+
 # install docker
 
 ```
